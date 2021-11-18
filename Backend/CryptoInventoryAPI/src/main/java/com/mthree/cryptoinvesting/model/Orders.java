@@ -3,7 +3,7 @@ package com.mthree.cryptoinvesting.model;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Order {
+public class Orders {
 
     private int orderId;
     private int portfolioId;
@@ -67,7 +67,7 @@ public class Order {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Order order = (Order) o;
+        Orders order = (Orders) o;
         return getOrderId() == order.getOrderId() && getPortfolioId() == order.getPortfolioId() && Float.compare(order.getPrice(), getPrice()) == 0 && Float.compare(order.getAmount(), getAmount()) == 0 && Objects.equals(getcName(), order.getcName()) && Objects.equals(getDatePurchased(), order.getDatePurchased());
     }
 
