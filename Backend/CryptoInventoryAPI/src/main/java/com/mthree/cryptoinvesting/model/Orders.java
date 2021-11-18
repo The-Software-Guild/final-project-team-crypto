@@ -8,7 +8,7 @@ public class Orders {
     private int orderId;
     private int portfolioId;
 
-    private String cName;
+    private String cryptoName;
 
     private float price;
     private float amount;
@@ -31,12 +31,12 @@ public class Orders {
         this.portfolioId = portfolioId;
     }
 
-    public String getcName() {
-        return cName;
+    public String getCryptoName() {
+        return cryptoName;
     }
 
-    public void setcName(String cName) {
-        this.cName = cName;
+    public void setCryptoName(String cryptoName) {
+        this.cryptoName = cryptoName;
     }
 
     public float getPrice() {
@@ -68,11 +68,11 @@ public class Orders {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Orders order = (Orders) o;
-        return getOrderId() == order.getOrderId() && getPortfolioId() == order.getPortfolioId() && Float.compare(order.getPrice(), getPrice()) == 0 && Float.compare(order.getAmount(), getAmount()) == 0 && Objects.equals(getcName(), order.getcName()) && Objects.equals(getDatePurchased(), order.getDatePurchased());
+        return getOrderId() == order.getOrderId() && getPortfolioId() == order.getPortfolioId() && Float.compare(order.getPrice(), getPrice()) == 0 && Float.compare(order.getAmount(), getAmount()) == 0 && Objects.equals(getCryptoName(), order.getCryptoName()) && Objects.equals(getDatePurchased(), order.getDatePurchased());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getOrderId(), getPortfolioId(), getcName(), getPrice(), getAmount(), getDatePurchased());
+        return Objects.hash(getOrderId(), getPortfolioId(), getCryptoName(), getPrice(), getAmount(), getDatePurchased());
     }
 }
