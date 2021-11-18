@@ -45,3 +45,4 @@ public class Users {
         return Objects.hash(getUserId(), getUsername(), getPassword());
     }
 }
+
