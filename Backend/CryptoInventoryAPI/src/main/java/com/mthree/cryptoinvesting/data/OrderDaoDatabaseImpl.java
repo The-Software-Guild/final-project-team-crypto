@@ -10,6 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 @Repository
@@ -21,6 +24,10 @@ public class OrderDaoDatabaseImpl implements OrderDao {
     @Override
     public Orders addOrder(Orders order) {
         final String INSERT_ORDER = "INSERT INTO orders(portfolioId, cName, price, amount, date) VALUES (?,?,?,?,?)" ;
+
+        LocalDateTime timestamp = LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS);
+        order.setDatePurchased(timestamp);
+
         jdbcTemplate.update(INSERT_ORDER, order.getPortfolioId(), order.getCryptoName(),
                 order.getPrice(), order.getAmount(), order.getDatePurchased());
 
@@ -34,7 +41,7 @@ public class OrderDaoDatabaseImpl implements OrderDao {
     public Orders getOrderById(int orderId) {
         final String SELECT_ORDER_BY_ID = "SELECT * FROM orders WHERE orderId = ?";
         try {
-            return jdbcTemplate.queryForObject(SELECT_ORDER_BY_ID, new OrderDaoDatabaseImpl.OrdersMapper(), orderId);
+            return jdbcTemplate.queryForObject(SELECT_ORDER_BY_ID, new OrdersMapper(), orderId);
         } catch (DataAccessException ex) {
             return null;
         }
@@ -43,13 +50,13 @@ public class OrderDaoDatabaseImpl implements OrderDao {
     @Override
     public List<Orders> getAllOrdersByPortfolioId(int portfolioId) {
         final String SELECT_ALL_ORDERS_BY_PORTFOLIO_ID = "SELECT * FROM orders WHERE portfolioId = ?";
-        return jdbcTemplate.query(SELECT_ALL_ORDERS_BY_PORTFOLIO_ID, new OrderDaoDatabaseImpl.OrdersMapper(),portfolioId);
+        return jdbcTemplate.query(SELECT_ALL_ORDERS_BY_PORTFOLIO_ID, new OrdersMapper(),portfolioId);
     }
 
     @Override
     public List<Orders> getAllOrders() {
         final String SELECT_ALL_ORDERS = "SELECT * FROM orders";
-        return jdbcTemplate.query(SELECT_ALL_ORDERS, new OrderDaoDatabaseImpl.OrdersMapper());
+        return jdbcTemplate.query(SELECT_ALL_ORDERS, new OrdersMapper());
     }
     public static final class OrdersMapper implements RowMapper<Orders> {
 
@@ -63,7 +70,10 @@ public class OrderDaoDatabaseImpl implements OrderDao {
             order.setPrice(rs.getFloat("price"));
             order.setAmount(rs.getFloat("amount"));
 
-            // order.setDatePurchased(rs.getDate("date"));
+           //get the timestamp for the datePurchased variable
+            Timestamp timestamp = rs.getTimestamp("date");
+            order.setDatePurchased(timestamp.toLocalDateTime().truncatedTo(ChronoUnit.SECONDS));
+
             return order;
         }
     }
