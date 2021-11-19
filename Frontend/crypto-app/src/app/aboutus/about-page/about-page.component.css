@@ -1,12 +1,17 @@
 .backImage {
-    
+
     /* Full height */
-    height: 100%;
+    height: 800px;
     width: 100%;
+
     /* Center and scale the image nicely */
     background-position: centered;
     background-repeat: no-repeat;
     background-size: cover;
+
+    /*add fade transition to the team portion of the page */
+    -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
     }
 
 /* Centered text */
@@ -21,20 +26,43 @@ text-align: CENTER;
 }
 
 .headTitle {
-    color: rgb(151, 25, 25); 
-    font-family: 'Helvetica Neue', 
-    sans-serif; 
-    font-size: 8vw; 
-    font-weight: bold; 
-    letter-spacing: -1px; 
-    line-height: 1; 
+    color: rgb(160,251,254);
+    font-family: 'Helvetica Neue',
+    sans-serif;
+    font-size: 8vw;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 1;
     text-align: center;
-    border: 5px solid #111;
-    padding: 20px;
-    margin: 0 0 10vh; 
+    padding: 40px 20px;
+    margin: 0 0 10vh;
+   /* background-color: rgb(33,37,41, .75);*/
+    border-radius: 5px;
 }
 
 .team {
     margin: auto;
     justify-content: center;
+}
+
+.teamTitle{
+  text-align: center;
+
+}
+
+.teamTitleText{
+   color: rgb(160,251,254);
+   font-size: 8em;
+}
+
+.card {
+    margin: auto;
+    color: rgb(160,251,254);
+    background-color: rgb(35,63,88);
+    box-shadow: 0px 0px 7px;
+    border: 0px;
+}
+.row{
+  padding: 8vh 10vw;
+  width: 100%
 }
