@@ -3,6 +3,7 @@ package com.mthree.cryptoinvesting.data;
 import com.mthree.cryptoinvesting.model.Orders;
 import com.mthree.cryptoinvesting.model.Portfolio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -10,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,7 +27,25 @@ public class PortfolioDaoDatabaseImpl implements PortfolioDao {
 
     @Override
     public List<String> getAllCryptos(int userId) {
-        return null;
+        final String SQL_GET_USER_PORTFOLIO_BY_USER_ID = "SELECT * FROM portfolio WHERE userID = ?";
+        try {
+            Portfolio retrievedPortfolio = jdbcTemplate.queryForObject(SQL_GET_USER_PORTFOLIO_BY_USER_ID, new PortfolioMapper(), userId);
+            List<String> allCryptos = cryptosAsString(retrievedPortfolio);
+            return allCryptos;
+        } catch (DataAccessException ex) {
+            return null;
+        }
+    }
+
+    private List<String> cryptosAsString(Portfolio portfolio) {
+        List<String> cryptos = new ArrayList<>();
+        cryptos.add("BTC : " + portfolio.getBTC());
+        cryptos.add("ETH : " + portfolio.getETH());
+        cryptos.add("BNB : " + portfolio.getBNB());
+        cryptos.add("ADA : " + portfolio.getADA());
+        cryptos.add("SOL : " + portfolio.getSOL());
+        cryptos.add("DOGE : " + portfolio.getDOGE());
+        return cryptos;
     }
 
     @Override
