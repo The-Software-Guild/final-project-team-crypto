@@ -1,6 +1,7 @@
 package com.mthree.cryptoinvesting.model;
 
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.Objects;
 
 /**
@@ -61,11 +62,11 @@ public class Orders {
     }
 
     public LocalDateTime getDatePurchased() {
-        return datePurchased;
+        return datePurchased.truncatedTo(ChronoUnit.SECONDS);
     }
 
     public void setDatePurchased(LocalDateTime datePurchased) {
-        this.datePurchased = datePurchased;
+        this.datePurchased = datePurchased.truncatedTo(ChronoUnit.SECONDS);
     }
 
     @Override
