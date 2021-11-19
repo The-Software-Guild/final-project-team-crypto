@@ -12,6 +12,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * @author Kristi
+ * @version 11/19/2021
+ */
+
 @Repository
 public class UserDaoDatabaseImpl implements UserDao {
 
