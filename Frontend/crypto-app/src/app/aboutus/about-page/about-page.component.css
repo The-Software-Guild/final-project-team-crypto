@@ -1,0 +1,40 @@
+.backImage {
+    
+    /* Full height */
+    height: 100%;
+    width: 100%;
+    /* Center and scale the image nicely */
+    background-position: centered;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+
+/* Centered text */
+.centered {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+color: white;
+font-weight: bold;
+text-align: CENTER;
+}
+
+.headTitle {
+    color: rgb(151, 25, 25); 
+    font-family: 'Helvetica Neue', 
+    sans-serif; 
+    font-size: 8vw; 
+    font-weight: bold; 
+    letter-spacing: -1px; 
+    line-height: 1; 
+    text-align: center;
+    border: 5px solid #111;
+    padding: 20px;
+    margin: 0 0 10vh; 
+}
+
+.team {
+    margin: auto;
+    justify-content: center;
+}
