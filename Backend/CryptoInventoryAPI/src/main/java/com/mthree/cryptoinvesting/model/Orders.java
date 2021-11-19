@@ -3,6 +3,11 @@ package com.mthree.cryptoinvesting.model;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+/**
+ * @author Kristi
+ * @version 11/18/2021
+ */
+
 public class Orders {
 
     private int orderId;

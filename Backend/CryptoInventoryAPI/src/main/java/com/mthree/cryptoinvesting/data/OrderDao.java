@@ -4,6 +4,10 @@ import com.mthree.cryptoinvesting.model.Orders;
 
 import java.util.List;
 
+/**
+ * @author Kristi
+ * @version 11/19/2021
+ */
 public interface OrderDao {
 
     /**

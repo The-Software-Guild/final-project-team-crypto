@@ -2,6 +2,11 @@ package com.mthree.cryptoinvesting.model;
 
 import java.util.Objects;
 
+/**
+ * @author Kristi
+ * @version 11/18/2021
+ */
+
 public class Users {
 
     private int userId;

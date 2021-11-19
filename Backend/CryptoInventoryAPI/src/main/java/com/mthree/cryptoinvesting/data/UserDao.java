@@ -4,6 +4,10 @@ import com.mthree.cryptoinvesting.model.Users;
 
 import java.util.List;
 
+/**
+ * @author Kristi
+ * @version 11/19/2021
+ */
 public interface UserDao {
 
     /**
