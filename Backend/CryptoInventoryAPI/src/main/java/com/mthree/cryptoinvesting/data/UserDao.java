@@ -30,4 +30,11 @@ public interface UserDao {
      */
     Users getUserById(int userId);
 
+    /**
+     * Deletes a specified user and all of their information.
+     * @param user The user to be deleted from the database.
+     * @return True if the user was deleted, else false.
+     */
+    boolean deleteUser(Users user);
+
 }
