@@ -4,7 +4,7 @@ import { HttpHeaders } from '@angular/common/http';
 
 
 import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 
 import { Crypto } from './cryptos';
 
@@ -21,11 +21,11 @@ const httpOptions = {
 })
 
 export class CryptosService {
-  cryptoUrl = 'https://alpha-vantage.p.rapidapi.com/query?from_currency=BTC&function=CURRENCY_EXCHANGE_RATE&to_currency=USD&apikey=0NZ3U3VVSQNFIB8J';
+  cryptoUrl = 'https://alpha-vantage.p.rapidapi.com/query?from_currency=';
   constructor(private http: HttpClient){}
   
   /** GET heroes from the server */
-  getBTC(): Observable<Crypto[]> {
-    return this.http.get<Crypto[]>(this.cryptoUrl, httpOptions);
+  getPrice(ticker: string): Observable<Crypto> {
+    return this.http.get<Crypto>(this.cryptoUrl + ticker + '&function=CURRENCY_EXCHANGE_RATE&to_currency=USD&apikey=0NZ3U3VVSQNFIB8J', httpOptions);
   }
 }
