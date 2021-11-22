@@ -28,32 +28,37 @@ public class CryptoInvestingServiceLayerDatabaseImpl implements CryptoInvestingS
     }
 
     @Override
-    public List<String> getAllCryptos(int portfolioId) {
-        return null;
+    public List<String> getAllCryptos(int userId) {
+
+        return portfolioDao.getAllCryptos(userId);
     }
 
     @Override
     public List<Orders> getAllOrders() {
-        return null;
+        return orderDao.getAllOrders();
     }
 
     @Override
     public List<Orders> getAllOrdersByPortfolioId(int portfolioId) {
-        return null;
+        return orderDao.getAllOrdersByPortfolioId(portfolioId);
     }
 
     @Override
     public Orders purchaseCrypto(Orders order) {
-        return null;
+        Orders purchased = orderDao.addOrder(order);
+        portfolioDao.updatePortfolio(order);
+        return purchased;
     }
 
     @Override
     public Orders sellCrypto(Orders order) {
-        return null;
+        Orders sold = orderDao.removeOrder(order);
+        portfolioDao.sellCrypto(order);
+        return sold;
     }
 
     @Override
-    public Users deleteAccount(Users user) {
-        return null;
+    public boolean deleteAccount(Users user) {
+        return userDao.deleteUser(user);
     }
 }

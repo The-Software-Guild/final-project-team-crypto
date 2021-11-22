@@ -21,10 +21,10 @@ public interface CryptoInvestingServiceLayer {
 
     /**
      * Returns a list of all cryptos that exist for a particular user.
-     * @param portfolioId The portfolio id associated with a specific user.
+     * @param userId The portfolio id associated with a specific user.
      * @return
      */
-    List<String> getAllCryptos(int portfolioId);
+    List<String> getAllCryptos(int userId);
 
     /**
      * Retuns all orders that exist within the database.
@@ -60,6 +60,6 @@ public interface CryptoInvestingServiceLayer {
      * @param user The user that will be deleted.
      * @return The deleted user information.
      */
-    Users deleteAccount(Users user);
+    boolean deleteAccount(Users user);
 
 }
