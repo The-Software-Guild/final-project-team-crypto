@@ -31,7 +31,8 @@ CREATE TABLE orders (
     cName CHAR(3),
     price FLOAT,
     amount FLOAT,
-    date DATETIME,
+    purchaseDate DATETIME,
+	soldDate DATETIME,
     CONSTRAINT fk_portfolio_orders 
     	FOREIGN KEY (portfolioId)
     	REFERENCES portfolio(portfolioId)
