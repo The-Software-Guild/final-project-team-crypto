@@ -19,7 +19,7 @@ public interface OrderDao {
     Orders addOrder(Orders order);
 
     /**
-     * Returns an order by its specidied id.
+     * Returns an order by its specified id.
      * @param orderId The id of the unique order.
      * @return The order that was returned.
      */
