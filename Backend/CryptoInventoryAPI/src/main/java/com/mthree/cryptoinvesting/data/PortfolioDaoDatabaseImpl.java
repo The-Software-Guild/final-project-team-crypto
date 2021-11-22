@@ -90,7 +90,7 @@ public class PortfolioDaoDatabaseImpl implements PortfolioDao {
                 default:
                     return null;
             }
-            final String SQL_UPDATE_PORTFOLIO = "UPDATE portfolio SET BTC = ?, ETH = ?, BNB = ?, ADA = ?, SOL = ?, DOGE = ? WHERE portfolioId = ?";
+            final String SQL_UPDATE_PORTFOLIO = "UPDATE portfolio SET BTC = ?, ETH = ?, BNB = ?, ADA = ?, DOGE = ? WHERE portfolioId = ?";
             jdbcTemplate.update(SQL_UPDATE_PORTFOLIO, retrievedPortfolio.getBTC(), retrievedPortfolio.getETH(), retrievedPortfolio.getBNB(), retrievedPortfolio.getADA(), retrievedPortfolio.getDOGE(), retrievedPortfolio.getPortfolioId());
             return retrievedPortfolio;
         } catch (DataAccessException ex) {
