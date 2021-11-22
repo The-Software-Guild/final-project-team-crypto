@@ -5,15 +5,3 @@ test {
 h2 {
     color: rgb(33, 255, 33);
   }
-
-  .sectionHeading {
-    color: rgb(255, 255, 255); 
-    font-family: 'Helvetica Neue', 
-    sans-serif; 
-    font-size: 275px; 
-    font-weight: bold; 
-    letter-spacing: -1px; 
-    line-height: 1; 
-    text-align: center;
-    padding: 10px;
-}
