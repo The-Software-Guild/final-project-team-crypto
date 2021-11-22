@@ -27,7 +27,7 @@ CREATE TABLE portfolio (
 CREATE TABLE orders (
     orderId INT PRIMARY KEY AUTO_INCREMENT,
     portfolioId INT,
-    cName CHAR(3),
+    cName VARCHAR(5),
     price FLOAT,
     amount FLOAT,
     purchaseDate DATETIME,
