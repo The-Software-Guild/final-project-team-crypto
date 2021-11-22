@@ -27,7 +27,7 @@ public class OrderDaoDatabaseImpl implements OrderDao {
     @Transactional
     @Override
     public Orders addOrder(Orders order) {
-        final String INSERT_ORDER = "INSERT INTO orders(portfolioId, cName, price, amount, date) VALUES (?,?,?,?,?)" ;
+        final String INSERT_ORDER = "INSERT INTO orders(portfolioId, cName, price, amount, purchaseDate) VALUES (?,?,?,?,?)" ;
 
         LocalDateTime timestamp = LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS);
         order.setDatePurchased(timestamp);
