@@ -6,7 +6,8 @@ import java.util.List;
 
 /**
  * @author Kristi
- * @version 11/19/2021
+ * @author Chelsey
+ * @version 11/22/2021
  */
 public interface OrderDao {
 
@@ -37,4 +38,9 @@ public interface OrderDao {
      */
     List<Orders> getAllOrders();
 
+    /**
+     * Remove an order from the orders table.
+     * @param order The order to be removed.
+     */
+    Orders removeOrder(Orders order);
 }

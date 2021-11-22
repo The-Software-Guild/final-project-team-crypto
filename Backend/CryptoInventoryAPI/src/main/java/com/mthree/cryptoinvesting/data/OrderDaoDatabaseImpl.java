@@ -17,9 +17,8 @@ import java.util.List;
 
 /**
  * @author Chelsey
- * @version 11/19/2021
+ * @version 11/22/2021
  */
-
 @Repository
 public class OrderDaoDatabaseImpl implements OrderDao {
     @Autowired
@@ -58,11 +57,18 @@ public class OrderDaoDatabaseImpl implements OrderDao {
         return jdbcTemplate.query(SELECT_ALL_ORDERS_BY_PORTFOLIO_ID, new OrdersMapper(),portfolioId);
     }
 
+
     @Override
     public List<Orders> getAllOrders() {
         final String SELECT_ALL_ORDERS = "SELECT * FROM orders";
         return jdbcTemplate.query(SELECT_ALL_ORDERS, new OrdersMapper());
     }
+
+    @Override
+    public Orders removeOrder(Orders order) {
+        return null;
+    }
+
     public static final class OrdersMapper implements RowMapper<Orders> {
 
         @Override
