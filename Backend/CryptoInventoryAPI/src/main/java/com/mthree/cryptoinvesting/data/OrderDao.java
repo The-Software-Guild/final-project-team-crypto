@@ -39,8 +39,9 @@ public interface OrderDao {
     List<Orders> getAllOrders();
 
     /**
-     * Remove an order from the orders table.
+     * Removes an order from the orders table.
      * @param order The order to be removed.
+     * @return The order with its dateSold and amount updated.
      */
     Orders removeOrder(Orders order);
 }

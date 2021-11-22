@@ -66,7 +66,15 @@ public class OrderDaoDatabaseImpl implements OrderDao {
 
     @Override
     public Orders removeOrder(Orders order) {
-        return null;
+        final String SET_SOLD_DATE_AND_STOCK_TO_ZERO = "UPDATE orders SET amount = 0, dateSold = ? WHERE orderId = ?";
+
+        LocalDateTime dateSold = LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS);
+        order.setDateSold(dateSold);
+        order.setAmount(0);
+
+        jdbcTemplate.update(SET_SOLD_DATE_AND_STOCK_TO_ZERO, dateSold, order.getOrderId());
+
+        return order;
     }
 
     public static final class OrdersMapper implements RowMapper<Orders> {
