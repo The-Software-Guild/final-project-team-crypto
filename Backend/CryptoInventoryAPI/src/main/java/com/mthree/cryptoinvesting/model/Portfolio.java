@@ -16,7 +16,6 @@ public class Portfolio {
     private float ETH;
     private float BNB;
     private float ADA;
-    private float SOL;
     private float DOGE;
 
     public int getPortfolioId() {
@@ -67,14 +66,6 @@ public class Portfolio {
         this.ADA = ADA;
     }
 
-    public float getSOL() {
-        return SOL;
-    }
-
-    public void setSOL(float SOL) {
-        this.SOL = SOL;
-    }
-
     public float getDOGE() {
         return DOGE;
     }
@@ -88,11 +79,11 @@ public class Portfolio {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Portfolio portfolio = (Portfolio) o;
-        return getPortfolioId() == portfolio.getPortfolioId() && getUserId() == portfolio.getUserId() && Float.compare(portfolio.getBTC(), getBTC()) == 0 && Float.compare(portfolio.getETH(), getETH()) == 0 && Float.compare(portfolio.getBNB(), getBNB()) == 0 && Float.compare(portfolio.getADA(), getADA()) == 0 && Float.compare(portfolio.getSOL(), getSOL()) == 0 && Float.compare(portfolio.getDOGE(), getDOGE()) == 0;
+        return getPortfolioId() == portfolio.getPortfolioId() && getUserId() == portfolio.getUserId() && Float.compare(portfolio.getBTC(), getBTC()) == 0 && Float.compare(portfolio.getETH(), getETH()) == 0 && Float.compare(portfolio.getBNB(), getBNB()) == 0 && Float.compare(portfolio.getADA(), getADA()) == 0 && Float.compare(portfolio.getDOGE(), getDOGE()) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getPortfolioId(), getUserId(), getBTC(), getETH(), getBNB(), getADA(), getSOL(), getDOGE());
+        return Objects.hash(getPortfolioId(), getUserId(), getBTC(), getETH(), getBNB(), getADA(), getDOGE());
     }
 }

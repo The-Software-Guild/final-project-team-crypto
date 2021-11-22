@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS cryptoInvesting;
+DROP DATABASE IF EXISTS cryptoInvestingTest;
 
-CREATE DATABASE cryptoInvesting;
+CREATE DATABASE cryptoInvestingTest;
 
-USE cryptoInvesting;
+USE cryptoInvestingTest;
 
 CREATE TABLE user (
 	userId INT PRIMARY KEY AUTO_INCREMENT,

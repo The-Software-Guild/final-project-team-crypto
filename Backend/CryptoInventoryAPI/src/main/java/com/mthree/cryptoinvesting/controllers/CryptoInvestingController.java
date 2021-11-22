@@ -54,7 +54,7 @@ public class CryptoInvestingController {
     }
 
     @PostMapping("/delete")
-    public Users deleteAccount(@RequestBody Users user) {
+    public boolean deleteAccount(@RequestBody Users user) {
         return service.deleteAccount(user);
     }
 
