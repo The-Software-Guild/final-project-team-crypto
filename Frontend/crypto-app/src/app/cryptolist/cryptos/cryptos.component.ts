@@ -17,7 +17,6 @@ export class CryptosComponent implements OnInit {
   ethPrice!: string;
   bnbPrice!: string;
   adaPrice!: string;
-  solPrice!: string;
   dogePrice!: string;
 
   constructor(private cService: CryptosService) { }
@@ -27,8 +26,7 @@ export class CryptosComponent implements OnInit {
     this.getPrice('ETH');
     this.getPrice('BNB');
     this.getPrice('ADA');
-    // this.getPrice('SOL');
-    // this.getPrice('DOGE');
+    this.getPrice('DOGE');
   }
 
   getPrice(ticker: string): void {

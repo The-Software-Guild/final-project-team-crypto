@@ -1,12 +1,4 @@
-test {
-    color: white;
-}
-
-h2 {
-    color: rgb(33, 255, 33);
-  }
-
-  .sectionHeading {
+.sectionHeading {
     color: rgb(255, 255, 255); 
     font-family: 'Helvetica Neue', 
     sans-serif; 
