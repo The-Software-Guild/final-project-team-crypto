@@ -13,6 +13,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import static org.junit.Assert.*;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = TestApplicationConfiguration.class)
 public class OrderDaoDatabaseImplTest {
@@ -35,8 +37,7 @@ public class OrderDaoDatabaseImplTest {
 
     @Before
     public void setUp() {
-        final String SQL_RUN_SCRIPT = "cryptoinvesting-test-schema.sql";
-        jdbcTest.update(SQL_RUN_SCRIPT);
+
     }
 
     @Test
@@ -56,11 +57,22 @@ public class OrderDaoDatabaseImplTest {
         Orders order1 = new Orders();
         order1.setPortfolioId(portfolio1.getPortfolioId());
         order1.setCryptoName("BTC");
-
+        order1.setPrice(12.50f);
+        order1.setAmount(3);
+        orderTest.addOrder(order1);
 
         //get the order
+        Orders retrievedOrder = orderTest.getOrderById(order1.getOrderId());
 
         //test the info in the order
+        assertNotNull(retrievedOrder);
+        assertEquals(order1.getOrderId(), retrievedOrder.getOrderId());
+        assertEquals(order1.getAmount(), retrievedOrder.getAmount());
+        assertEquals(order1.getPortfolioId(), retrievedOrder.getPortfolioId());
+        assertEquals(order1.getCryptoName(), retrievedOrder.getCryptoName());
+        assertEquals(order1.getPrice(), retrievedOrder.getPrice());
+        assertEquals(order1.getDatePurchased(), retrievedOrder.getDatePurchased());
+
     }
 
 }

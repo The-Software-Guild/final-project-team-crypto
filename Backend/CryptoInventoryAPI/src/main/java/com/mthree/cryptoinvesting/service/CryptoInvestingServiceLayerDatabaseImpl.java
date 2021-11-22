@@ -57,10 +57,9 @@ public class CryptoInvestingServiceLayerDatabaseImpl implements CryptoInvestingS
 
     @Override
     public Orders sellCrypto(Orders order) {
-        //Orders sold = orderDao.removeOrder(order);
-        //portfolioDao.sellCrypto(order);
-        //return sold;
-        return null;
+        Orders sold = orderDao.removeOrder(order);
+        portfolioDao.sellCrypto(order);
+        return sold;
     }
 
     @Override
