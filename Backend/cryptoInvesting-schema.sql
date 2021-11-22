@@ -17,7 +17,6 @@ CREATE TABLE portfolio (
     ETH float NOT NULL DEFAULT 0,
     BNB float NOT NULL DEFAULT 0,
     ADA float NOT NULL DEFAULT 0,
-    SOL float NOT NULL DEFAULT 0,
     DOGE float NOT NULL DEFAULT 0,
     CONSTRAINT fk_user_portfolio 
     	FOREIGN KEY (userId)

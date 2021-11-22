@@ -43,7 +43,6 @@ public class PortfolioDaoDatabaseImpl implements PortfolioDao {
         cryptos.add("ETH : " + portfolio.getETH());
         cryptos.add("BNB : " + portfolio.getBNB());
         cryptos.add("ADA : " + portfolio.getADA());
-        cryptos.add("SOL : " + portfolio.getSOL());
         cryptos.add("DOGE : " + portfolio.getDOGE());
         return cryptos;
     }
@@ -82,10 +81,6 @@ public class PortfolioDaoDatabaseImpl implements PortfolioDao {
                     float currentADA = retrievedPortfolio.getADA();
                     retrievedPortfolio.setADA(currentADA + order.getAmount());
                     break;
-                case "SOL":
-                    float currentSOL = retrievedPortfolio.getSOL();
-                    retrievedPortfolio.setSOL(currentSOL + order.getAmount());
-                    break;
                 case "DOGE":
                     float currentDOGE = retrievedPortfolio.getDOGE();
                     retrievedPortfolio.setDOGE(currentDOGE + order.getAmount());
@@ -94,7 +89,7 @@ public class PortfolioDaoDatabaseImpl implements PortfolioDao {
                     return null;
             }
             final String SQL_UPDATE_PORTFOLIO = "UPDATE portfolio SET BTC = ?, ETH = ?, BNB = ?, ADA = ?, SOL = ?, DOGE = ? WHERE portfolioId = ?";
-            jdbcTemplate.update(SQL_UPDATE_PORTFOLIO, retrievedPortfolio.getBTC(), retrievedPortfolio.getETH(), retrievedPortfolio.getBNB(), retrievedPortfolio.getADA(), retrievedPortfolio.getSOL(), retrievedPortfolio.getDOGE(), retrievedPortfolio.getPortfolioId());
+            jdbcTemplate.update(SQL_UPDATE_PORTFOLIO, retrievedPortfolio.getBTC(), retrievedPortfolio.getETH(), retrievedPortfolio.getBNB(), retrievedPortfolio.getADA(), retrievedPortfolio.getDOGE(), retrievedPortfolio.getPortfolioId());
             return retrievedPortfolio;
         } catch (DataAccessException ex) {
             return null;
@@ -123,10 +118,6 @@ public class PortfolioDaoDatabaseImpl implements PortfolioDao {
                     float currentADA = retrievedPortfolio.getADA();
                     retrievedPortfolio.setADA(currentADA - order.getAmount());
                     break;
-                case "SOL":
-                    float currentSOL = retrievedPortfolio.getSOL();
-                    retrievedPortfolio.setSOL(currentSOL - order.getAmount());
-                    break;
                 case "DOGE":
                     float currentDOGE = retrievedPortfolio.getDOGE();
                     retrievedPortfolio.setDOGE(currentDOGE - order.getAmount());
@@ -134,8 +125,8 @@ public class PortfolioDaoDatabaseImpl implements PortfolioDao {
                 default:
                     return null;
             }
-            final String SQL_UPDATE_PORTFOLIO = "UPDATE portfolio SET BTC = ?, ETH = ?, BNB = ?, ADA = ?, SOL = ?, DOGE = ? WHERE portfolioId = ?";
-            jdbcTemplate.update(SQL_UPDATE_PORTFOLIO, retrievedPortfolio.getBTC(), retrievedPortfolio.getETH(), retrievedPortfolio.getBNB(), retrievedPortfolio.getADA(), retrievedPortfolio.getSOL(), retrievedPortfolio.getDOGE(), retrievedPortfolio.getPortfolioId());
+            final String SQL_UPDATE_PORTFOLIO = "UPDATE portfolio SET BTC = ?, ETH = ?, BNB = ?, ADA = ?, DOGE = ? WHERE portfolioId = ?";
+            jdbcTemplate.update(SQL_UPDATE_PORTFOLIO, retrievedPortfolio.getBTC(), retrievedPortfolio.getETH(), retrievedPortfolio.getBNB(), retrievedPortfolio.getADA(), retrievedPortfolio.getDOGE(), retrievedPortfolio.getPortfolioId());
             return retrievedPortfolio;
         } catch (DataAccessException ex) {
             return null;
@@ -154,7 +145,6 @@ public class PortfolioDaoDatabaseImpl implements PortfolioDao {
             portfolio.setETH(rs.getFloat("ETH"));
             portfolio.setBNB(rs.getFloat("BNB"));
             portfolio.setADA(rs.getFloat("ADA"));
-            portfolio.setSOL(rs.getFloat("SOL"));
             portfolio.setDOGE(rs.getFloat("DOGE"));
             return portfolio;
 
