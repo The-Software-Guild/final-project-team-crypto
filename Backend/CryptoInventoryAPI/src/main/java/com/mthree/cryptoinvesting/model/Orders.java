@@ -82,12 +82,12 @@ public class Orders {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Orders order = (Orders) o;
-        return getOrderId() == order.getOrderId() && getPortfolioId() == order.getPortfolioId() && Float.compare(order.getPrice(), getPrice()) == 0 && Float.compare(order.getAmount(), getAmount()) == 0 && Objects.equals(getCryptoName(), order.getCryptoName()) && Objects.equals(getDatePurchased(), order.getDatePurchased());
+        Orders orders = (Orders) o;
+        return getOrderId() == orders.getOrderId() && getPortfolioId() == orders.getPortfolioId() && Float.compare(orders.getPrice(), getPrice()) == 0 && Float.compare(orders.getAmount(), getAmount()) == 0 && Objects.equals(getCryptoName(), orders.getCryptoName()) && Objects.equals(getDatePurchased(), orders.getDatePurchased()) && Objects.equals(getDateSold(), orders.getDateSold());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getOrderId(), getPortfolioId(), getCryptoName(), getPrice(), getAmount(), getDatePurchased());
+        return Objects.hash(getOrderId(), getPortfolioId(), getCryptoName(), getPrice(), getAmount(), getDatePurchased(), getDateSold());
     }
 }
