@@ -17,9 +17,8 @@ import java.util.List;
 
 /**
  * @author Chelsey
- * @version 11/19/2021
+ * @version 11/22/2021
  */
-
 @Repository
 public class OrderDaoDatabaseImpl implements OrderDao {
     @Autowired
@@ -58,11 +57,26 @@ public class OrderDaoDatabaseImpl implements OrderDao {
         return jdbcTemplate.query(SELECT_ALL_ORDERS_BY_PORTFOLIO_ID, new OrdersMapper(),portfolioId);
     }
 
+
     @Override
     public List<Orders> getAllOrders() {
         final String SELECT_ALL_ORDERS = "SELECT * FROM orders";
         return jdbcTemplate.query(SELECT_ALL_ORDERS, new OrdersMapper());
     }
+
+    @Override
+    public Orders removeOrder(Orders order) {
+        final String SET_SOLD_DATE_AND_STOCK_TO_ZERO = "UPDATE orders SET amount = 0, dateSold = ? WHERE orderId = ?";
+
+        LocalDateTime dateSold = LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS);
+        order.setDateSold(dateSold);
+        order.setAmount(0);
+
+        jdbcTemplate.update(SET_SOLD_DATE_AND_STOCK_TO_ZERO, dateSold, order.getOrderId());
+
+        return order;
+    }
+
     public static final class OrdersMapper implements RowMapper<Orders> {
 
         @Override

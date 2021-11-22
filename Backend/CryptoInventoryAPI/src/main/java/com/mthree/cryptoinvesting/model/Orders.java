@@ -1,5 +1,7 @@
 package com.mthree.cryptoinvesting.model;
 
+import org.apache.tomcat.jni.Local;
+
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.Objects;
@@ -20,6 +22,7 @@ public class Orders {
     private float amount;
 
     private LocalDateTime datePurchased;
+    private LocalDateTime dateSold;
 
     public int getOrderId() {
         return orderId;
@@ -65,8 +68,14 @@ public class Orders {
         return datePurchased.truncatedTo(ChronoUnit.SECONDS);
     }
 
+    public LocalDateTime getDateSold() { return dateSold.truncatedTo(ChronoUnit.SECONDS); }
+
     public void setDatePurchased(LocalDateTime datePurchased) {
         this.datePurchased = datePurchased.truncatedTo(ChronoUnit.SECONDS);
+    }
+
+    public void setDateSold(LocalDateTime dateSold) {
+        this.dateSold = dateSold.truncatedTo(ChronoUnit.SECONDS);
     }
 
     @Override
