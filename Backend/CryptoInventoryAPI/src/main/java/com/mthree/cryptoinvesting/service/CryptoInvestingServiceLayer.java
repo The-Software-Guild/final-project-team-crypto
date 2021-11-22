@@ -17,7 +17,7 @@ public interface CryptoInvestingServiceLayer {
      * Creates a new user in the database.
      * @return The id of the new user.
      */
-    int newUser();
+    int newUser(Users user);
 
     /**
      * Returns a list of all cryptos that exist for a particular user.

@@ -24,8 +24,8 @@ public class CryptoInvestingController {
 
     @PostMapping("/begin")
     @ResponseStatus(HttpStatus.CREATED)
-    public int createUser(){
-        return service.newUser();
+    public int createUser(@RequestBody Users user){
+        return service.newUser(user);
     }
 
     @GetMapping("/cryptos/{portfolioId}")

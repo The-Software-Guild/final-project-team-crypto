@@ -50,8 +50,7 @@ public class OrderDaoDatabaseImplTest {
 
         //add portfolio
         Portfolio portfolio1 = new Portfolio();
-        portfolio1.setUserId(user1.getUserId());
-        portfolioTest.addPortfolio(portfolio1);
+        portfolioTest.addPortfolio(user1);
 
         //add order one
         Orders order1 = new Orders();

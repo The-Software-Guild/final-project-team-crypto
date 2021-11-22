@@ -2,6 +2,7 @@ package com.mthree.cryptoinvesting.data;
 
 import com.mthree.cryptoinvesting.model.Orders;
 import com.mthree.cryptoinvesting.model.Portfolio;
+import com.mthree.cryptoinvesting.model.Users;
 
 import java.util.List;
 
@@ -25,7 +26,7 @@ public interface PortfolioDao {
      * @param portfolio The portfolio to add to the database.
      * @return The portfolio that was added.
      */
-    Portfolio addPortfolio(Portfolio portfolio);
+    Portfolio addPortfolio(Users user);
 
     /**
      * Updates the information inside the portfolio every time a

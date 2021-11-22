@@ -2,6 +2,7 @@ package com.mthree.cryptoinvesting.data;
 
 import com.mthree.cryptoinvesting.model.Orders;
 import com.mthree.cryptoinvesting.model.Portfolio;
+import com.mthree.cryptoinvesting.model.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -49,11 +50,12 @@ public class PortfolioDaoDatabaseImpl implements PortfolioDao {
 
     @Override
     @Transactional
-    public Portfolio addPortfolio(Portfolio portfolio) {
+    public Portfolio addPortfolio(Users user) {
         final String SQL_INSERT_PORTFOLIO = "INSERT INTO portfolio(userId) VALUES (?)";
-        jdbcTemplate.update(SQL_INSERT_PORTFOLIO, portfolio.getUserId());
+        jdbcTemplate.update(SQL_INSERT_PORTFOLIO, user.getUserId());
 
         int newPortfolioId = jdbcTemplate.queryForObject("SELECT LAST_INSERT_ID()", Integer.class);
+        Portfolio portfolio = new Portfolio();
         portfolio.setPortfolioId(newPortfolioId);
         return portfolio;
     }
