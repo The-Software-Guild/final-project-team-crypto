@@ -9,15 +9,12 @@ import { HomeModule } from './home/home.module';
 import { AccountModule } from './account/account.module';
 import { AboutusModule } from './aboutus/aboutus.module';
 import { SearchBarComponent } from './search-bar/search-bar.component';
-import { CryptListComponent } from './crypt-list/crypt-list.component';
-import { CryptosComponent } from './cryptos/cryptos.component';
+import { CryptolistRoutingModule } from './cryptolist/cryptolist-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchBarComponent,
-    CryptListComponent,
-    CryptosComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +22,8 @@ import { CryptosComponent } from './cryptos/cryptos.component';
     AppRoutingModule,
     HomeModule,
     AccountModule,
-    AboutusModule
+    AboutusModule,
+    CryptolistRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
