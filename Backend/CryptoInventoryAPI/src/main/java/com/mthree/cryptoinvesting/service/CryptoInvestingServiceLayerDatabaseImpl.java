@@ -10,6 +10,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * @author Kristi & Chelsey
+ * @version 11/22/2021
+ */
+
 @Service
 public class CryptoInvestingServiceLayerDatabaseImpl implements CryptoInvestingServiceLayer{
 
