@@ -101,6 +101,47 @@ public class PortfolioDaoDatabaseImpl implements PortfolioDao {
         }
     }
 
+    public Portfolio sellCrypto(Orders order) {
+        final String SQL_SELECT_PORTFOLIO = "SELECT * FROM portfolio WHERE portfolioId = ?";
+        try {
+            Portfolio retrievedPortfolio = jdbcTemplate.queryForObject(SQL_SELECT_PORTFOLIO, new PortfolioMapper(), order.getPortfolioId());
+            String orderType = order.getCryptoName();
+            switch (orderType) {
+                case "BTC":
+                    float currentBTC = retrievedPortfolio.getBTC();
+                    retrievedPortfolio.setBTC(currentBTC - order.getAmount());
+                    break;
+                case "ETH":
+                    float currentETH = retrievedPortfolio.getETH();
+                    retrievedPortfolio.setETH(currentETH - order.getAmount());
+                    break;
+                case "BNB":
+                    float currentBNB = retrievedPortfolio.getBNB();
+                    retrievedPortfolio.setBNB(currentBNB - order.getAmount());
+                    break;
+                case "ADA":
+                    float currentADA = retrievedPortfolio.getADA();
+                    retrievedPortfolio.setADA(currentADA - order.getAmount());
+                    break;
+                case "SOL":
+                    float currentSOL = retrievedPortfolio.getSOL();
+                    retrievedPortfolio.setSOL(currentSOL - order.getAmount());
+                    break;
+                case "DOGE":
+                    float currentDOGE = retrievedPortfolio.getDOGE();
+                    retrievedPortfolio.setDOGE(currentDOGE - order.getAmount());
+                    break;
+                default:
+                    return null;
+            }
+            final String SQL_UPDATE_PORTFOLIO = "UPDATE portfolio SET BTC = ?, ETH = ?, BNB = ?, ADA = ?, SOL = ?, DOGE = ? WHERE portfolioId = ?";
+            jdbcTemplate.update(SQL_UPDATE_PORTFOLIO, retrievedPortfolio.getBTC(), retrievedPortfolio.getETH(), retrievedPortfolio.getBNB(), retrievedPortfolio.getADA(), retrievedPortfolio.getSOL(), retrievedPortfolio.getDOGE(), retrievedPortfolio.getPortfolioId());
+            return retrievedPortfolio;
+        } catch (DataAccessException ex) {
+            return null;
+        }
+    }
+
     public static final class PortfolioMapper implements RowMapper<Portfolio> {
 
         @Override

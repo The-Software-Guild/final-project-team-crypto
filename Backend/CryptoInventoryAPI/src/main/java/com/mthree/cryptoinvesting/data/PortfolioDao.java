@@ -35,4 +35,12 @@ public interface PortfolioDao {
      */
     Portfolio updatePortfolio(Orders order);
 
+    /**
+     * Updates the information inside the portfolio when a user
+     * sells their crypto currency.
+     * @param order The cryptos to be sold.
+     * @return The updated portfolio.
+     */
+    Portfolio sellCrypto(Orders order);
+
 }
