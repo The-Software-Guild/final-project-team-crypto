@@ -30,7 +30,7 @@ public class CryptoInvestingServiceLayerDatabaseImpl implements CryptoInvestingS
     @Override
     public int newUser(Users user) {
         userDao.addUser(user);
-        portfolioDao.addPortfolio(user.getUserId());
+        portfolioDao.addPortfolio(user);
         return user.getUserId();
     }
 
