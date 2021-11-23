@@ -2,6 +2,7 @@ package com.mthree.cryptoinvesting.service;
 
 
 import com.mthree.cryptoinvesting.model.Orders;
+import com.mthree.cryptoinvesting.model.Price;
 import com.mthree.cryptoinvesting.model.Users;
 
 import java.util.List;
@@ -61,5 +62,12 @@ public interface CryptoInvestingServiceLayer {
      * @return The deleted user information.
      */
     boolean deleteAccount(Users user);
+
+    // price methods
+    boolean updatePrice(Price price);
+
+    List<Price> getAllPrices();
+
+    Price getPriceByTicker(String ticker);
 
 }

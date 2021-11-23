@@ -2,8 +2,10 @@ package com.mthree.cryptoinvesting.service;
 
 import com.mthree.cryptoinvesting.data.OrderDao;
 import com.mthree.cryptoinvesting.data.PortfolioDao;
+import com.mthree.cryptoinvesting.data.PriceDao;
 import com.mthree.cryptoinvesting.data.UserDao;
 import com.mthree.cryptoinvesting.model.Orders;
+import com.mthree.cryptoinvesting.model.Price;
 import com.mthree.cryptoinvesting.model.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +28,9 @@ public class CryptoInvestingServiceLayerDatabaseImpl implements CryptoInvestingS
 
     @Autowired
     UserDao userDao;
+
+    @Autowired
+    PriceDao priceDao;
 
     @Override
     public int newUser(Users user) {
@@ -67,4 +72,21 @@ public class CryptoInvestingServiceLayerDatabaseImpl implements CryptoInvestingS
     public boolean deleteAccount(Users user) {
         return userDao.deleteUser(user);
     }
+
+    @Override
+    public boolean updatePrice(Price price) {
+        return priceDao.updatePrice(price);
+    }
+
+    @Override
+    public List<Price> getAllPrices() {
+        return priceDao.getAllPrices();
+    }
+
+    @Override
+    public Price getPriceByTicker(String ticker) {
+        return priceDao.getPriceByTicker(ticker);
+    }
+
+
 }
