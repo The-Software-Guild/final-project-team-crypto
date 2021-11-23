@@ -95,7 +95,10 @@ public class OrderDaoDatabaseImpl implements OrderDao {
 
             //get the timestamp for the dateSold variable
             Timestamp soldTimestamp = rs.getTimestamp("dateSold");
-            order.setDateSold(soldTimestamp.toLocalDateTime().truncatedTo(ChronoUnit.SECONDS));
+
+            if (soldTimestamp != null) {
+                order.setDateSold(soldTimestamp.toLocalDateTime().truncatedTo(ChronoUnit.SECONDS));
+            }
 
             return order;
         }

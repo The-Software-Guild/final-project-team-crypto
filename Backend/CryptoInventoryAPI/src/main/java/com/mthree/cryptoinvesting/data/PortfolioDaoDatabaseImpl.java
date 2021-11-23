@@ -57,6 +57,7 @@ public class PortfolioDaoDatabaseImpl implements PortfolioDao {
         int newPortfolioId = jdbcTemplate.queryForObject("SELECT LAST_INSERT_ID()", Integer.class);
         Portfolio portfolio = new Portfolio();
         portfolio.setPortfolioId(newPortfolioId);
+        portfolio.setUserId(user.getUserId());
         return portfolio;
     }
 

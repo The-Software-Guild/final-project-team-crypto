@@ -13,6 +13,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalDateTime;
+
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
@@ -49,8 +51,7 @@ public class OrderDaoDatabaseImplTest {
         userTest.addUser(user1);
 
         //add portfolio
-        Portfolio portfolio1 = new Portfolio();
-        portfolioTest.addPortfolio(user1);
+        Portfolio portfolio1 = portfolioTest.addPortfolio(user1);
 
         //add order one
         Orders order1 = new Orders();
@@ -58,6 +59,7 @@ public class OrderDaoDatabaseImplTest {
         order1.setCryptoName("BTC");
         order1.setPrice(12.50f);
         order1.setAmount(3);
+        order1.setDatePurchased(LocalDateTime.now());
         orderTest.addOrder(order1);
 
         //get the order
@@ -66,10 +68,10 @@ public class OrderDaoDatabaseImplTest {
         //test the info in the order
         assertNotNull(retrievedOrder);
         assertEquals(order1.getOrderId(), retrievedOrder.getOrderId());
-        assertEquals(order1.getAmount(), retrievedOrder.getAmount());
+        assertEquals(order1.getAmount(), retrievedOrder.getAmount(),1e-15);
         assertEquals(order1.getPortfolioId(), retrievedOrder.getPortfolioId());
         assertEquals(order1.getCryptoName(), retrievedOrder.getCryptoName());
-        assertEquals(order1.getPrice(), retrievedOrder.getPrice());
+        assertEquals(order1.getPrice(), retrievedOrder.getPrice(),1e-15);
         assertEquals(order1.getDatePurchased(), retrievedOrder.getDatePurchased());
 
     }
