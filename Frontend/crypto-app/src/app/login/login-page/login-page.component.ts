@@ -11,7 +11,7 @@ import { AuthenticationService } from '../../auth/authentication.service';
 })
 export class LoginPageComponent implements OnInit {
 
-  loginForm!: FormGroup;
+  loginForm: FormGroup;
 
   constructor(
     private authService: AuthenticationService,

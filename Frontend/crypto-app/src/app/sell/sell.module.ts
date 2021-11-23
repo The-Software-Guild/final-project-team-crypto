@@ -3,6 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { SellRoutingModule } from './sell-routing.module';
 import { SellPageComponent } from './sell-page/sell-page.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -11,7 +16,13 @@ import { SellPageComponent } from './sell-page/sell-page.component';
   ],
   imports: [
     CommonModule,
-    SellRoutingModule
+    SellRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    BrowserAnimationsModule
   ]
 })
 export class SellModule { }

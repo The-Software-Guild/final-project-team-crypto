@@ -1,1 +1,29 @@
-<p>buy-page works!</p>
+<div class="log">
+    <h1 style="background-color: #0f6dbf; padding: 10px;">
+        Buy
+    </h1>
+    <div class="log">
+        <form  (ngSubmit)="onSubmit()">
+            <!-- [formGroup]="orderForm" -->
+            <label for="cryptoName" class="form-label">Choose Crypto</label>
+            <select class="form-select form-select-lg mb-3" aria-label="Default select example">
+                <option selected>Open this select menu</option>
+                <option value="1">Bitcoin</option>
+                <option value="2">Ethereum</option>
+                <option value="3">Binance</option>
+                <option value="4">Binance</option>
+                <option value="5">Doge</option>
+            </select>
+            <p>Price: $0</p>
+            
+            <label for="cryptoAmount" class="form-label">Enter Amount</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text">$</span>
+                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                <span class="input-group-text">.00</span>
+            </div>
+            <button mat-flat-button [disabled]="!orderForm.valid" type="submit" class="btn btn-primary">Buy</button>
+        </form>
+    </div>
+    
+</div>
