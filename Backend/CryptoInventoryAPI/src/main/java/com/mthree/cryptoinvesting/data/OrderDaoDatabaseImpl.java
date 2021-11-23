@@ -74,7 +74,10 @@ public class OrderDaoDatabaseImpl implements OrderDao {
 
         jdbcTemplate.update(SET_SOLD_DATE_AND_STOCK_TO_ZERO, dateSold, order.getOrderId());
 
-        return order;
+        final String GET_UPDATED_ORDER = "SELECT * FROM orders WHERE orderId = ?";
+        Orders retrievedOrder = jdbcTemplate.queryForObject(GET_UPDATED_ORDER, new OrdersMapper(), order.getOrderId());
+
+        return retrievedOrder;
     }
 
     public static final class OrdersMapper implements RowMapper<Orders> {
