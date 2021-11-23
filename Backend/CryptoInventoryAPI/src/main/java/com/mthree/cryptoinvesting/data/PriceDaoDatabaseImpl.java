@@ -35,7 +35,7 @@ public class PriceDaoDatabaseImpl implements PriceDao{
     public Price getPriceByTicker(String ticker) {
         final String SQL_SELECT_PRICE_BY_TICKER = "SELECT * FROM market WHERE ticker = ?";
         try {
-            return jdbcTemplate.queryForObject(SQL_SELECT_PRICE_BY_TICKER, new PriceMapper());
+            return jdbcTemplate.queryForObject(SQL_SELECT_PRICE_BY_TICKER, new PriceMapper(), ticker);
         } catch (DataAccessException ex) {
             return null;
         }
