@@ -30,29 +30,61 @@ export class CryptosComponent implements OnInit {
   }
 
   getPrice(ticker: string): void {
-    this.cService.getPrice(ticker).subscribe(price => {
+    this.cService.getAPIPrice(ticker).subscribe(price => {
       this.coin = price;
 
       switch (ticker){
         case 'BTC':
           this.btcPrice = this.coin['Realtime Currency Exchange Rate']['5. Exchange Rate'];
+          this.cService.setPrice('BTC', this.btcPrice);
           break;
         case 'ETH':
           this.ethPrice = this.coin['Realtime Currency Exchange Rate']['5. Exchange Rate'];
+          this.cService.setPrice('ETH', this.ethPrice);
           break;
         case 'BNB':
           this.bnbPrice = this.coin['Realtime Currency Exchange Rate']['5. Exchange Rate'];
+          this.cService.setPrice('BNB', this.bnbPrice);
           break;
         case 'ADA':
           this.adaPrice = this.coin['Realtime Currency Exchange Rate']['5. Exchange Rate'];
+          this.cService.setPrice('ADA', this.adaPrice);
           break;
         case 'DOGE':
           this.dogePrice = this.coin['Realtime Currency Exchange Rate']['5. Exchange Rate'];
+          this.cService.setPrice('DOGE', this.dogePrice);
           break;
         default:
           break;
       }
 
+    },
+    error => {
+        this.cService.getServerPrice(ticker).subscribe(coin => {
+          switch (ticker){
+            case 'BTC':
+              this.btcPrice = coin.price;
+              
+              break;
+            case 'ETH':
+              this.ethPrice = coin.price;
+              break;
+            case 'BNB':
+              this.bnbPrice = coin.price;
+              break;
+            case 'ADA':
+              this.adaPrice = coin.price;
+              break;
+            case 'DOGE':
+              this.dogePrice = coin.price;
+              break;
+            default:
+              break;
+          }
+        }),
+        error => {
+          
+        }
     });
   }
 
