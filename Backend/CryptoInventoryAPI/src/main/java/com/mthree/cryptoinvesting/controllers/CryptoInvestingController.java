@@ -1,10 +1,12 @@
 package com.mthree.cryptoinvesting.controllers;
 
 import com.mthree.cryptoinvesting.model.Orders;
+import com.mthree.cryptoinvesting.model.Price;
 import com.mthree.cryptoinvesting.model.Users;
 import com.mthree.cryptoinvesting.service.CryptoInvestingServiceLayer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -38,6 +40,12 @@ public class CryptoInvestingController {
         return service.getAllOrders();
     }
 
+
+    @GetMapping("/prices")
+    public List<Price> getAllPrices() {
+        return service.getAllPrices();
+    }
+
     @GetMapping("/order/{portfolioId}")
     public List<Orders> getOrdersByPortfolio(@PathVariable("portfolioId") int portfolioId) {
         return service.getAllOrdersByPortfolioId(portfolioId);
@@ -57,5 +65,12 @@ public class CryptoInvestingController {
     public boolean deleteAccount(@RequestBody Users user) {
         return service.deleteAccount(user);
     }
+
+    @PutMapping("/updatePrice")
+    public boolean update(@RequestBody Price price) {
+        return service.updatePrice(price);
+    }
+
+
 
 }
