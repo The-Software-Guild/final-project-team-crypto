@@ -39,11 +39,17 @@ CREATE TABLE orders (
 );
 
 CREATE TABLE market (
-                        BTC FLOAT NOT NULL DEFAULT 0,
-                        ETH FLOAT NOT NULL DEFAULT 0,
-                        BNB FLOAT NOT NULL DEFAULT 0,
-                        ADA FLOAT NOT NULL DEFAULT 0,
-                        DOGE FLOAT NOT NULL DEFAULT 0
-);
+                        ticker VARCHAR(5) NOT NULL,
+                        price FLOAT NOT NULL DEFAULT 0
 
-insert into market (BTC, ETH, BNB, ADA, DOGE) values (0,0,0,0,0);
+);
+insert into market (ticker, price) values ("BTC", 0);
+insert into market (ticker, price) values ("ETH", 0);
+insert into market (ticker, price) values ("BNB", 0);
+insert into market (ticker, price) values ("ADA", 0);
+insert into market (ticker, price) values ("DOGE", 0);
+
+insert into user (username, password) values ("Miguel", "1234");
+insert into user (username, password) values ("Chelsey", "9632");
+insert into user (username, password) values ("Kristi", "54321");
+insert into user (username, password) values ("Will", "54624");
