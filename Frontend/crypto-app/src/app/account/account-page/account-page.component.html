@@ -1,14 +1,101 @@
-<div>
-    <img src="../../../assets/img/team-background.jpg" class="backImage" alt="Crypto">
+<link rel="stylesheet" href="https://unpkg.com/charts.css/dist/charts.min.css">
+
+<div class="title-container">
+    <h1>My Portfolio</h1>
+    <h4>
+        <br>
+        Total Amount Invested:
+        <br> 
+        <a href="#btc" >BTC:</a> 
+        <br>
+        ETH: 
+        <br>
+        BNB: 
+        <br>
+        ADA: 
+        <br>
+        Doge:
+    </h4>
 </div>
-<div class="centered">
-    <h1 class="headTitle">Account Page</h1>
-    <div class="d-grid gap-2">
-      <a class="btn btn-success" id="invest">Buy</a><a class="btn btn-danger" id="invest">Sell</a>
+
+<div class="all-graph-container">
+    <div class="chart-container">
+        <table class="charts-css line" id="my-chart">
+            <th id="btc">
+                BTC
+            </th>
+            <tbody>
+                <tr>
+                    <td style="--start: 0.0; --size: 0.4"> <span class="data"></span> </td>
+                </tr>
+                <tr>
+                    <td style="--start: 0.4; --size: 0.2"> <span class="data"></span> </td>
+                </tr>
+                <tr>
+                    <td style="--start: 0.2; --size: 0.6"> <span class="data"></span> </td>
+                </tr>
+                <tr>
+                    <td style="--start: 0.6; --size: 0.8"> <span class="data"></span> </td>
+                </tr>
+            </tbody>
+          </table>
+        <section class="graph-description">
+            Total Amount invested: $$$
+        </section>
     </div>
+    <div class="chart-container">
+        <table class="charts-css line" id="my-chart">
+            <tbody>
+                <tr>
+                    <td style="--start: 0.0; --size: 0.4"> <span class="data"></span> </td>
+                </tr>
+                <tr>
+                    <td style="--start: 0.4; --size: 0.2"> <span class="data"></span> </td>
+                </tr>
+                <tr>
+                    <td style="--start: 0.2; --size: 0.6"> <span class="data"></span> </td>
+                </tr>
+            </tbody>
+          </table>
+          <section class="graph-description">
+            Total Amount invested: $$$
+        </section>
+    </div>
+    <div class="chart-container">
+        <table class="charts-css line" id="my-chart">
+            <tbody>
+                <tr>
+                    <td style="--start: 0.0; --size: 0.4"> <span class="data"></span> </td>
+                </tr>
+                <tr>
+                    <td style="--start: 0.4; --size: 0.2"> <span class="data"></span> </td>
+                </tr>
+                <tr>
+                    <td style="--start: 0.2; --size: 0.6"> <span class="data"></span> </td>
+                </tr>
+            </tbody>
+          </table>
+          <section class="graph-description">
+            Total Amount invested: $$$
+        </section>
+    </div>
+    <div class="chart-container">
+        <table class="charts-css line" id="my-chart">
+            <tbody>
+                <tr>
+                    <td style="--start: 0.0; --size: 0.4"> <span class="data"></span> </td>
+                </tr>
+                <tr>
+                    <td style="--start: 0.4; --size: 0.2"> <span class="data"></span> </td>
+                </tr>
+                <tr>
+                    <td style="--start: 0.2; --size: 0.6"> <span class="data"></span> </td>
+                </tr>
+            </tbody>
+          </table>
+          <section class="graph-description">
+            Total Amount invested: $$$
+          </section>
+    </div>
+
 </div>
-
-<app-account-details></app-account-details>
-
-<app-order-details></app-order-details>
-

@@ -1,42 +1,56 @@
-.backImage {
 
-    /* Full height */
-    height: 800px;
-    width: 100%;
 
-    /* Center and scale the image nicely */
-    background-position: centered;
-    background-repeat: no-repeat;
-    background-size: cover;
 
-    /*add fade transition to the team portion of the page */
-    -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
-    mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
-    }
-
-/* Centered text */
-.centered {
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-color: white;
-font-weight: bold;
-text-align: CENTER;
+.title-container{
+    color: white;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    margin-bottom:  150px;
+    margin-top:  50px;
 }
 
 
-.headTitle {
-    color: rgb(160,251,254);
-    font-family: 'Helvetica Neue',
-    sans-serif;
-    font-size: 8vw;
-    font-weight: bold;
-    letter-spacing: -1px;
-    line-height: 1;
+.chart-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 15px;
+    align-items: center;
+    padding: 15px;
+    /* background-color: antiquewhite; */
+    width: 100%;
+    color: white;
+}
+
+
+#my-chart.line {
+    height: 400px;
+    width: 650px;
+    border: 2px solid rgb(44,44,44); 
+  }
+
+#my-chart th{
+    color: black;
     text-align: center;
-    padding: 40px 20px;
-    margin: 0 0 10vh;
-   /* background-color: rgb(33,37,41, .75);*/
-    border-radius: 5px;
+    font-size: 1.5em;
+}
+
+.all-graph-container{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 20px;
+    background-color: rgb(160,251,254, .2);
+    box-shadow: 0 0 20px 15px rgb(160,251,254, .2);
+}
+
+.graph-description{
+    text-align: center;
+    flex-grow: 2;
+    font-size: 2em;
 }
