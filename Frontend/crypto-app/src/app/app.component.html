@@ -14,18 +14,12 @@
     </div>
   </div>
   <form class="d-flex justify-content-end signUpButton">
-    <button class="btn btn-sm btn-outline-secondary" type="button">Login</button>
-    <button class="btn btn-sm btn-outline-danger" type="Signup">Signup</button>
+    <a class="btn btn-sm btn-outline-secondary" type="button" href="/login">Login</a>
+    <a class="btn btn-sm btn-outline-danger" type="Signup" href="/signup">Signup</a>
   </form>
 
 
 </nav>
 
-
-<!-- <div class="container">
-  <h1 class="text-center">{{ title }}</h1>
-  <app-search-bar (submitted)="onTerm($event)"></app-search-bar>
-  <app-crypt-list [pages]="pages"></app-crypt-list>
-</div> -->
 
 <router-outlet></router-outlet>
