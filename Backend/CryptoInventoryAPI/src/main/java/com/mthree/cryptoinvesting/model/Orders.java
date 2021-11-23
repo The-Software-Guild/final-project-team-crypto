@@ -8,6 +8,7 @@ import java.util.Objects;
 
 /**
  * @author Kristi
+ * @author Chelsey
  * @version 11/18/2021
  */
 
@@ -68,7 +69,11 @@ public class Orders {
         return datePurchased.truncatedTo(ChronoUnit.SECONDS);
     }
 
-    public LocalDateTime getDateSold() { return dateSold.truncatedTo(ChronoUnit.SECONDS); }
+    public LocalDateTime getDateSold() {
+        if (dateSold == null)  {
+            return null;
+        }
+        return dateSold.truncatedTo(ChronoUnit.SECONDS); }
 
     public void setDatePurchased(LocalDateTime datePurchased) {
         this.datePurchased = datePurchased.truncatedTo(ChronoUnit.SECONDS);

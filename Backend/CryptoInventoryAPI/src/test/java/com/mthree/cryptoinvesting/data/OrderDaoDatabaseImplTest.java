@@ -76,4 +76,17 @@ public class OrderDaoDatabaseImplTest {
 
     }
 
+    @Test
+    public void testGetOrderById() {
+            // Retrieving order from testAddGetOrder
+            Orders order = orderTest.getOrderById(1);
+            assertEquals(order.getOrderId(),1);
+            assertEquals(order.getAmount(),3,1e-15);
+            assertEquals(order.getPortfolioId(),1);
+            assertEquals(order.getCryptoName(),"BTC");
+            assertEquals(order.getPrice(),12.50f,1e-15);
+            assertEquals(order.getDatePurchased() != null,true);
+            assertEquals(order.getDateSold(),null);
+    }
+
 }
