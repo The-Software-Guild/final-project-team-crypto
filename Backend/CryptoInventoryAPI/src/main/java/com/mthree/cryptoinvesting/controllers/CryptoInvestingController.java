@@ -46,6 +46,11 @@ public class CryptoInvestingController {
         return service.getAllPrices();
     }
 
+    @GetMapping("/price/{ticker}")
+    public Price getPrice(@PathVariable("ticker") String ticker){
+        return service.getPriceByTicker(ticker.toUpperCase());
+    }
+
     @GetMapping("/order/{portfolioId}")
     public List<Orders> getOrdersByPortfolio(@PathVariable("portfolioId") int portfolioId) {
         return service.getAllOrdersByPortfolioId(portfolioId);
