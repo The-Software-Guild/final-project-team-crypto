@@ -1,0 +1,56 @@
+
+
+
+.title-container{
+    color: white;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    margin-bottom:  150px;
+    margin-top:  50px;
+}
+
+
+.chart-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 15px;
+    align-items: center;
+    padding: 15px;
+    /* background-color: antiquewhite; */
+    width: 100%;
+    color: white;
+}
+
+
+#my-chart.line {
+    height: 400px;
+    width: 650px;
+    border: 2px solid rgb(44,44,44); 
+  }
+
+#my-chart th{
+    color: black;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.all-graph-container{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 20px;
+    background-color: rgb(160,251,254, .2);
+    box-shadow: 0 0 20px 15px rgb(160,251,254, .2);
+}
+
+.graph-description{
+    text-align: center;
+    flex-grow: 2;
+    font-size: 2em;
+}
