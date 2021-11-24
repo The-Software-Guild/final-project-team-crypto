@@ -42,14 +42,15 @@ public class UserDaoDatabaseImpl implements UserDao {
     }
 
     @Override
-    public Users getUserById(int userId) {
-        final String SQL_SELECT_USER_BY_ID = "SELECT * FROM user WHERE userId = ?";
+    public Users getUserByName(String username) {
+        final String SQL_SELECT_USER_BY_NAME = "SELECT * FROM user WHERE username = ?";
         try {
-            return jdbcTemplate.queryForObject(SQL_SELECT_USER_BY_ID, new UserMapper(), userId);
+            return jdbcTemplate.queryForObject(SQL_SELECT_USER_BY_NAME, new UserMapper(), username);
         } catch (DataAccessException ex) {
-            return null;
+            return new Users("Error", "User Not Found");
         }
     }
+
 
     @Override
     public boolean deleteUser(Users user) {

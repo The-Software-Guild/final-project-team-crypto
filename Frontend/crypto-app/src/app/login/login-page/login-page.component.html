@@ -5,10 +5,9 @@
     <div class="log">
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" matInput placeholder="Email" formControlName="email" aria-describedby="emailHelp">
-            <mat-hint *ngIf="loginForm.controls['email'].errors">Email is required</mat-hint>
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            <label for="exampleInputusername1" class="form-label">Username</label>
+            <input type="username" class="form-control" matInput placeholder="username" formControlName="username" aria-describedby="usernameHelp">
+            <mat-hint *ngIf="loginForm.controls['username'].errors">Username is required</mat-hint>
             </div>
             <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Password</label>
@@ -18,18 +17,6 @@
             <button mat-flat-button color="primary" [disabled]="!loginForm.valid" type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
-    <!-- <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <div class="container">
-            <mat-form-field class="formInput">
-                <input matInput placeholder="Email" formControlName="email">
-                <mat-hint *ngIf="loginForm.controls['email'].errors">Email is required</mat-hint>
-            </mat-form-field>
-            <mat-form-field class="formInput">
-                <input matInput type="password" placeholder="Password" formControlName="password">
-                <mat-hint *ngIf="loginForm.controls['password'].errors">Password is required</mat-hint>
-            </mat-form-field>
-            <button mat-flat-button color="primary" [disabled]="!loginForm.valid" type="submit">Login</button>
-        </div>
-    </form> -->
+    
 </div>
 

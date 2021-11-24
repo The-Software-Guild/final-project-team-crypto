@@ -88,5 +88,15 @@ public class CryptoInvestingServiceLayerDatabaseImpl implements CryptoInvestingS
         return priceDao.getPriceByTicker(ticker);
     }
 
+    @Override
+    public Users getUserByName(Users user) {
+        Users login = userDao.getUserByName(user.getUsername());
+        if (login.getPassword().equals(user.getPassword()) || login.getUsername().equals("Error")){
+            return login;
+        }else{
+            return new Users("Error", "Wrong Password");
+        }
+    }
+
 
 }

@@ -6,21 +6,10 @@
 </div>
 <div class="log">
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-        <div class="mb-3">
-            <label for="fullName" class="form-label">Full Name</label>
-            <input type="text" class="form-control" matInput placeholder="Full Name" formControlName="name">
-            <mat-hint *ngIf="registerForm.get('name').errors">Full name is required</mat-hint>
-        </div>
+        <mat-hint *ngIf="registerForm.get('username').errors">Username is required</mat-hint>
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">@</span>
             <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" matInput placeholder="Username" formControlName="username">
-        </div>
-        
-        <mat-hint *ngIf="registerForm.get('username').errors">Username is required</mat-hint>
-        <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="text" class="form-control" matInput placeholder="Email" formControlName="email">
-            <mat-hint *ngIf="registerForm.get('email').errors">Email is required</mat-hint>
         </div>
         <div class="mb-3">
             <label for="password" class="form-label">Password</label>
@@ -41,37 +30,7 @@
 <small *ngIf="registerForm.hasError('passwordsNotMatching')">Passwords not matching</small>
 </div>
 
-<!-- <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <div class="container">
-        <mat-form-field>
-            <input matInput placeholder="Full Name" formControlName="name">
-            
-        </mat-form-field>
-
-        <mat-form-field>
-            <input matInput placeholder="Username" formControlName="username">
-            <mat-hint *ngIf="registerForm.get('username').errors">Username is required</mat-hint>
-        </mat-form-field>
-
-        <mat-form-field>
-            <input matInput placeholder="Email" formControlName="email">
-            <mat-hint *ngIf="registerForm.get('email').errors">Email is required</mat-hint>
-        </mat-form-field>
-
-        <mat-form-field>
-            <input matInput type="password" placeholder="Password" formControlName="password">
-            <mat-hint *ngIf="registerForm.get('password').errors">Password is required</mat-hint>
-        </mat-form-field>
-
-        <mat-form-field>
-            <input matInput type="password" placeholder="Password COnfirmation" formControlName="confirmPassword">
-            <mat-hint *ngIf="registerForm.hasError('passwordsNotMatching')">Passwords not matching</mat-hint>
-        </mat-form-field>
-
-        <button mat-flat-button color="primary" [disabled]="!registerForm.valid" type="submit">Register</button>
-    </div>
-</form>
 
 <h3 *ngIf="registerForm.invalid">Form contains following errors</h3>
 <small *ngIf="registerForm.get('password').hasError('passwordInvalid')">Password is not containing a number</small> <br>
-<small *ngIf="registerForm.hasError('passwordsNotMatching')">Passwords not matching</small> -->
+<small *ngIf="registerForm.hasError('passwordsNotMatching')">Passwords not matching</small> 

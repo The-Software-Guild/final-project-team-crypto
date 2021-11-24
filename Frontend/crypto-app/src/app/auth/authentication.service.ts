@@ -8,7 +8,7 @@ import { Observable, of } from 'rxjs';
 import { User } from './user.interface';
 
 export interface LoginForm {
-  email: string;
+  username: string;
   password: string;
 };
 
@@ -22,27 +22,27 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient, private jwtHelper: JwtHelperService) { }
 
-  // login(loginForm: LoginForm) {  
+  login(loginForm: LoginForm) {  
 
-  //   return this.http.post<any>('/api/users/login', {email: loginForm.email, password: loginForm.password}).pipe(
-  //     map((token) => {
-  //       console.log('token');
-  //       localStorage.setItem(JWT_NAME, token.access_token);
-  //       return token;
-  //     })
-  //   )
-  // }
+    return this.http.post<any>('http://localhost:8080/api/cryptoinventory/login', {username: loginForm.username, password: loginForm.password}).pipe(
+      map((token) => {
+        console.log('token');
+        localStorage.setItem(JWT_NAME, token.username);
+        return token;
+      })
+    )
+  }
 
-  // logout() {
-  //   localStorage.removeItem(JWT_NAME);
-  // }
+  logout() {
+    localStorage.removeItem(JWT_NAME);
+  }
 
-  // register(user: User) {
-  //   return this.http.post<any>('/api/users', user).pipe(
-  //     tap(user => console.log(user)),
-  //     map(user => user)
-  //   )
-  // }
+  register(user: User) {
+    return this.http.post<any>('http://localhost:8080/api/cryptoinventory/begin', user).pipe(
+      tap(user => console.log(user)),
+      map(user => user)
+    )
+  }
 
   // isAuthenticated(): boolean {
   //   const token = localStorage.getItem(JWT_NAME);

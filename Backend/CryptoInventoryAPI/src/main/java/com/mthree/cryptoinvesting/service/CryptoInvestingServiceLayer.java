@@ -70,4 +70,6 @@ public interface CryptoInvestingServiceLayer {
 
     Price getPriceByTicker(String ticker);
 
+    Users getUserByName(Users user);
+
 }

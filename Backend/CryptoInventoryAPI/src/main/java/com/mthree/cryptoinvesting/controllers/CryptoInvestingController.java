@@ -5,9 +5,12 @@ import com.mthree.cryptoinvesting.model.Price;
 import com.mthree.cryptoinvesting.model.Users;
 import com.mthree.cryptoinvesting.service.CryptoInvestingServiceLayer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.List;
 
@@ -21,13 +24,20 @@ import java.util.List;
 @RequestMapping("/api/cryptoinventory")
 public class CryptoInvestingController {
 
+
     @Autowired
     CryptoInvestingServiceLayer service;
+
 
     @PostMapping("/begin")
     @ResponseStatus(HttpStatus.CREATED)
     public int createUser(@RequestBody Users user){
         return service.newUser(user);
+    }
+
+    @PostMapping("/login")
+    public Users login(@RequestBody Users user){
+        return service.getUserByName(user);
     }
 
     @GetMapping("/cryptos/{portfolioId}")
@@ -76,6 +86,17 @@ public class CryptoInvestingController {
         return service.updatePrice(price);
     }
 
-
+    @Configuration
+    public class WebConfig implements WebMvcConfigurer {
+        @Override
+        public void addCorsMappings(CorsRegistry registry) {
+            registry.addMapping("/api/**")
+                    .allowedOrigins("*")
+                    .allowedMethods("*")
+                    .allowedHeaders("*")
+                    .allowCredentials(false)
+                    .maxAge(3600);
+        }
+    }
 
 }

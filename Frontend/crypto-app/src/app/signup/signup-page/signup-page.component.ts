@@ -44,13 +44,7 @@ export class SignupPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
-      name: [null, [Validators.required]],
       username: [null, [Validators.required]],
-      email: [null, [
-        Validators.required,
-        Validators.email,
-        Validators.minLength(6)
-      ]],
       password: [null, [
         Validators.required,
         Validators.minLength(3),
@@ -67,9 +61,9 @@ export class SignupPageComponent implements OnInit {
       return;
     }
     console.log(this.registerForm.value);
-    // this.authService.register(this.registerForm.value).pipe(
-    //   map(user => this.router.navigate(['login']))
-    // ).subscribe()
+    this.authService.register(this.registerForm.value).pipe(
+      map(user => this.router.navigate(['login']))
+    ).subscribe()
   }
 
 }

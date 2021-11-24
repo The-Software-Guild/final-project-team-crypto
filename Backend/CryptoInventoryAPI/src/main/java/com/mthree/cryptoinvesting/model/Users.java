@@ -13,6 +13,15 @@ public class Users {
     private String username;
     private String password;
 
+    public Users(){
+
+    }
+
+    public Users (String name, String pass){
+        this.username = name;
+        this.password = pass;
+    }
+
     public int getUserId() {
         return userId;
     }

@@ -25,10 +25,10 @@ public interface UserDao {
 
     /**
      * Retruns a specific user based on their unique user id.
-     * @param userId The unique id of the specified user.
+     * @param username The unique id of the specified user.
      * @return The user based on its specific id.
      */
-    Users getUserById(int userId);
+    Users getUserByName(String username);
 
     /**
      * Deletes a specified user and all of their information.

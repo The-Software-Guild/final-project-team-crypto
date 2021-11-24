@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { map } from 'rxjs';
+import { SharedService } from 'src/app/shared.service';
 import { AuthenticationService } from '../../auth/authentication.service';
 
 @Component({
@@ -16,12 +17,15 @@ export class LoginPageComponent implements OnInit {
   constructor(
     private authService: AuthenticationService,
     private formBuilder: FormBuilder,
-    private router: Router
-    ) { }
+    private router: Router,
+    private ss: SharedService
+    ) {
+      this.ss = ss;
+     }
 
     ngOnInit(): void {
       this.loginForm = new FormGroup({
-        email: new FormControl(null, [Validators.required, Validators.email, Validators.minLength(6)]),
+        username: new FormControl(null, [Validators.required]),
         password: new FormControl(null, [Validators.required, Validators.minLength(3)])
       })
     }
@@ -31,9 +35,10 @@ export class LoginPageComponent implements OnInit {
         return;
       }
       console.log(this.loginForm.value);
-      // this.authService.login(this.loginForm.value).pipe(
-      //   map(token => this.router.navigate(['account']))
-      // ).subscribe()
+      this.ss.login();
+      this.authService.login(this.loginForm.value).pipe(
+        map(token => this.router.navigate(['account']))
+      ).subscribe()
       
     }
 
